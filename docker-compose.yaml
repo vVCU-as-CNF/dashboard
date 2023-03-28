@@ -1,0 +1,33 @@
+version: '3.4'
+
+volumes:
+  grafana_data: {}
+
+services:
+  dashboard_grafana:
+    container_name: dashboard_grafana
+    build: ./grafana
+    volumes:
+      - grafana_data:/var/lib/grafana
+    ports:
+      - 3000:3000
+  
+
+  dashboard_mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: dashboard_mosquitto
+    volumes:
+      - ./mosquitto:/mosquitto/config
+    ports:
+      - 1883:1883
+
+  dashboard_proxy:
+    container_name: dashboard_proxy
+    build: ./proxy
+    environment:
+     - PYTHONUNBUFFERED=1
+
+networks:
+  grafana:
+    external: true
+    name: "grafana"
