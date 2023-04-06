@@ -24,14 +24,27 @@
     "editable": true,
     "fiscalYearStartMonth": 0,
     "graphTooltip": 0,
-    "id": 1,
-    "links": [],
+    "id": 2,
+    "links": [
+      {
+        "asDropdown": false,
+        "icon": "external link",
+        "includeVars": false,
+        "keepTime": false,
+        "tags": [],
+        "targetBlank": false,
+        "title": "Dashboard 4",
+        "tooltip": "",
+        "type": "dashboards",
+        "url": ""
+      }
+    ],
     "liveNow": false,
     "panels": [
       {
         "datasource": {
           "type": "grafana-mqtt-datasource",
-          "uid": "-wfkoLB4z"
+          "uid": "sWZlR4B4z"
         },
         "fieldConfig": {
           "defaults": {
@@ -50,7 +63,8 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green"
+                  "color": "green",
+                  "value": null
                 }
               ]
             }
@@ -58,8 +72,8 @@
           "overrides": []
         },
         "gridPos": {
-          "h": 10,
-          "w": 7,
+          "h": 12,
+          "w": 6,
           "x": 0,
           "y": 0
         },
@@ -138,14 +152,14 @@
           {
             "datasource": {
               "type": "grafana-mqtt-datasource",
-              "uid": "-wfkoLB4z"
+              "uid": "sWZlR4B4z"
             },
             "hide": false,
             "refId": "B",
             "topic": "obu/inqueue/json/3306/CAM"
           }
         ],
-        "title": "vOBU Location",
+        "title": "OBU Location",
         "transformations": [
           {
             "id": "extractFields",
@@ -220,7 +234,7 @@
       {
         "datasource": {
           "type": "grafana-mqtt-datasource",
-          "uid": "-wfkoLB4z"
+          "uid": "sWZlR4B4z"
         },
         "fieldConfig": {
           "defaults": {
@@ -239,7 +253,8 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green"
+                  "color": "green",
+                  "value": null
                 },
                 {
                   "color": "red",
@@ -251,9 +266,9 @@
           "overrides": []
         },
         "gridPos": {
-          "h": 10,
-          "w": 7,
-          "x": 7,
+          "h": 12,
+          "w": 6,
+          "x": 6,
           "y": 0
         },
         "hideTimeOverride": true,
@@ -329,7 +344,7 @@
           {
             "datasource": {
               "type": "grafana-mqtt-datasource",
-              "uid": "-wfkoLB4z"
+              "uid": "sWZlR4B4z"
             },
             "refId": "A",
             "topic": "/obu/inqueue/json/3306/CPM"
@@ -410,19 +425,27 @@
       {
         "datasource": {
           "type": "grafana-mqtt-datasource",
-          "uid": "-wfkoLB4z"
+          "uid": "sWZlR4B4z"
         },
         "fieldConfig": {
           "defaults": {
             "color": {
               "mode": "thresholds"
             },
+            "custom": {
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              }
+            },
             "mappings": [],
             "thresholds": {
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green"
+                  "color": "green",
+                  "value": null
                 },
                 {
                   "color": "red",
@@ -434,413 +457,10 @@
           "overrides": []
         },
         "gridPos": {
-          "h": 6,
-          "w": 5,
-          "x": 14,
+          "h": 17,
+          "w": 12,
+          "x": 12,
           "y": 0
-        },
-        "id": 8,
-        "options": {
-          "colorMode": "value",
-          "graphMode": "none",
-          "justifyMode": "auto",
-          "orientation": "auto",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "textMode": "auto"
-        },
-        "pluginVersion": "",
-        "targets": [
-          {
-            "datasource": {
-              "type": "grafana-mqtt-datasource",
-              "uid": "-wfkoLB4z"
-            },
-            "hide": false,
-            "refId": "A",
-            "topic": "obu/inqueue/json/3306/CPM"
-          }
-        ],
-        "title": "vOBU Number of Perceived Objects",
-        "transformations": [
-          {
-            "id": "extractFields",
-            "options": {
-              "format": "json",
-              "jsonPaths": [
-                {
-                  "alias": "perceivedObjects",
-                  "path": "cpm.cpmParameters.numberOfPerceivedObjects"
-                }
-              ],
-              "source": "CPM"
-            }
-          }
-        ],
-        "type": "stat"
-      },
-      {
-        "datasource": {
-          "type": "grafana-mqtt-datasource",
-          "uid": "-wfkoLB4z"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green"
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
-          },
-          "overrides": [
-            {
-              "matcher": {
-                "id": "byName",
-                "options": "speed"
-              },
-              "properties": [
-                {
-                  "id": "color",
-                  "value": {
-                    "fixedColor": "green",
-                    "mode": "fixed"
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        "gridPos": {
-          "h": 6,
-          "w": 5,
-          "x": 19,
-          "y": 0
-        },
-        "id": 4,
-        "options": {
-          "orientation": "auto",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "showThresholdLabels": false,
-          "showThresholdMarkers": true
-        },
-        "pluginVersion": "",
-        "targets": [
-          {
-            "datasource": {
-              "type": "grafana-mqtt-datasource",
-              "uid": "-wfkoLB4z"
-            },
-            "hide": false,
-            "refId": "A",
-            "topic": "obu/inqueue/json/3306/CAM"
-          }
-        ],
-        "title": "vOBU Speed (km/h)",
-        "transformations": [
-          {
-            "id": "extractFields",
-            "options": {
-              "format": "json",
-              "jsonPaths": [
-                {
-                  "alias": "speed_raw",
-                  "path": "cam.camParameters.highFrequencyContainer.basicVehicleContainerHighFrequency.speed.speedValue"
-                }
-              ],
-              "source": "CAM"
-            }
-          },
-          {
-            "id": "calculateField",
-            "options": {
-              "alias": "speed",
-              "binary": {
-                "left": "speed_raw",
-                "operator": "/",
-                "reducer": "sum",
-                "right": "36"
-              },
-              "mode": "binary",
-              "reduce": {
-                "reducer": "sum"
-              }
-            }
-          },
-          {
-            "id": "organize",
-            "options": {
-              "excludeByName": {
-                "speed_raw": true
-              },
-              "indexByName": {},
-              "renameByName": {}
-            }
-          }
-        ],
-        "type": "gauge"
-      },
-      {
-        "datasource": {
-          "type": "grafana-mqtt-datasource",
-          "uid": "-wfkoLB4z"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "lineInterpolation": "linear",
-              "lineWidth": 1,
-              "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "auto",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green"
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 6,
-          "w": 5,
-          "x": 14,
-          "y": 6
-        },
-        "id": 18,
-        "options": {
-          "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
-            "showLegend": true
-          },
-          "tooltip": {
-            "mode": "single",
-            "sort": "none"
-          }
-        },
-        "targets": [
-          {
-            "datasource": {
-              "type": "grafana-mqtt-datasource",
-              "uid": "-wfkoLB4z"
-            },
-            "refId": "A",
-            "topic": "/logs/access"
-          }
-        ],
-        "title": "5G RSRQ (dB)",
-        "transformations": [
-          {
-            "id": "filterFieldsByName",
-            "options": {
-              "include": {
-                "names": [
-                  "Time",
-                  "5g_rsrq"
-                ]
-              }
-            }
-          }
-        ],
-        "type": "timeseries"
-      },
-      {
-        "datasource": {
-          "type": "grafana-mqtt-datasource",
-          "uid": "-wfkoLB4z"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "lineInterpolation": "linear",
-              "lineWidth": 1,
-              "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "auto",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green"
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 6,
-          "w": 5,
-          "x": 19,
-          "y": 6
-        },
-        "id": 16,
-        "options": {
-          "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
-            "showLegend": true
-          },
-          "tooltip": {
-            "mode": "single",
-            "sort": "none"
-          }
-        },
-        "targets": [
-          {
-            "datasource": {
-              "type": "grafana-mqtt-datasource",
-              "uid": "-wfkoLB4z"
-            },
-            "refId": "A",
-            "topic": "/logs/access"
-          }
-        ],
-        "title": "5g RSRP (dB)",
-        "transformations": [
-          {
-            "id": "filterFieldsByName",
-            "options": {
-              "include": {
-                "names": [
-                  "Time",
-                  "5g_rsrp"
-                ]
-              }
-            }
-          }
-        ],
-        "type": "timeseries"
-      },
-      {
-        "datasource": {
-          "type": "grafana-mqtt-datasource",
-          "uid": "-wfkoLB4z"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "custom": {
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              }
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green"
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 12,
-          "w": 14,
-          "x": 0,
-          "y": 10
         },
         "hideTimeOverride": false,
         "id": 6,
@@ -1081,7 +701,7 @@
           {
             "datasource": {
               "type": "grafana-mqtt-datasource",
-              "uid": "-wfkoLB4z"
+              "uid": "sWZlR4B4z"
             },
             "hide": false,
             "refId": "A",
@@ -1157,7 +777,7 @@
       {
         "datasource": {
           "type": "grafana-mqtt-datasource",
-          "uid": "-wfkoLB4z"
+          "uid": "sWZlR4B4z"
         },
         "fieldConfig": {
           "defaults": {
@@ -1169,7 +789,8 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green"
+                  "color": "green",
+                  "value": null
                 },
                 {
                   "color": "red",
@@ -1178,19 +799,32 @@
               ]
             }
           },
-          "overrides": []
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "speed"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "green",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            }
+          ]
         },
         "gridPos": {
           "h": 5,
-          "w": 5,
-          "x": 14,
+          "w": 6,
+          "x": 0,
           "y": 12
         },
-        "id": 12,
+        "id": 4,
         "options": {
-          "colorMode": "value",
-          "graphMode": "area",
-          "justifyMode": "auto",
           "orientation": "auto",
           "reduceOptions": {
             "calcs": [
@@ -1199,39 +833,69 @@
             "fields": "",
             "values": false
           },
-          "textMode": "auto"
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true
         },
         "pluginVersion": "",
         "targets": [
           {
             "datasource": {
               "type": "grafana-mqtt-datasource",
-              "uid": "-wfkoLB4z"
+              "uid": "sWZlR4B4z"
             },
+            "hide": false,
             "refId": "A",
-            "topic": "logs/access"
+            "topic": "obu/inqueue/json/3306/CAM"
           }
         ],
-        "title": "MNC",
+        "title": "vOBU Speed (km/h)",
         "transformations": [
           {
-            "id": "filterFieldsByName",
+            "id": "extractFields",
             "options": {
-              "include": {
-                "names": [
-                  "Time",
-                  "mnc"
-                ]
+              "format": "json",
+              "jsonPaths": [
+                {
+                  "alias": "speed_raw",
+                  "path": "cam.camParameters.highFrequencyContainer.basicVehicleContainerHighFrequency.speed.speedValue"
+                }
+              ],
+              "source": "CAM"
+            }
+          },
+          {
+            "id": "calculateField",
+            "options": {
+              "alias": "speed",
+              "binary": {
+                "left": "speed_raw",
+                "operator": "/",
+                "reducer": "sum",
+                "right": "36"
+              },
+              "mode": "binary",
+              "reduce": {
+                "reducer": "sum"
               }
+            }
+          },
+          {
+            "id": "organize",
+            "options": {
+              "excludeByName": {
+                "speed_raw": true
+              },
+              "indexByName": {},
+              "renameByName": {}
             }
           }
         ],
-        "type": "stat"
+        "type": "gauge"
       },
       {
         "datasource": {
           "type": "grafana-mqtt-datasource",
-          "uid": "-wfkoLB4z"
+          "uid": "sWZlR4B4z"
         },
         "fieldConfig": {
           "defaults": {
@@ -1243,7 +907,8 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green"
+                  "color": "green",
+                  "value": null
                 },
                 {
                   "color": "red",
@@ -1256,14 +921,14 @@
         },
         "gridPos": {
           "h": 5,
-          "w": 5,
-          "x": 19,
+          "w": 6,
+          "x": 6,
           "y": 12
         },
-        "id": 14,
+        "id": 8,
         "options": {
           "colorMode": "value",
-          "graphMode": "area",
+          "graphMode": "none",
           "justifyMode": "auto",
           "orientation": "auto",
           "reduceOptions": {
@@ -1280,97 +945,26 @@
           {
             "datasource": {
               "type": "grafana-mqtt-datasource",
-              "uid": "-wfkoLB4z"
+              "uid": "sWZlR4B4z"
             },
+            "hide": false,
             "refId": "A",
-            "topic": "/logs/access"
+            "topic": "obu/inqueue/json/3306/CPM"
           }
         ],
-        "title": "MCC",
+        "title": "vOBU Number of Perceived Objects",
         "transformations": [
           {
-            "id": "filterFieldsByName",
+            "id": "extractFields",
             "options": {
-              "include": {
-                "names": [
-                  "Time",
-                  "mcc"
-                ]
-              }
-            }
-          }
-        ],
-        "type": "stat"
-      },
-      {
-        "datasource": {
-          "type": "grafana-mqtt-datasource",
-          "uid": "-wfkoLB4z"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
+              "format": "json",
+              "jsonPaths": [
                 {
-                  "color": "green"
-                },
-                {
-                  "color": "red",
-                  "value": 80
+                  "alias": "perceivedObjects",
+                  "path": "cpm.cpmParameters.numberOfPerceivedObjects"
                 }
-              ]
-            }
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 5,
-          "w": 10,
-          "x": 14,
-          "y": 17
-        },
-        "id": 20,
-        "options": {
-          "colorMode": "value",
-          "graphMode": "area",
-          "justifyMode": "auto",
-          "orientation": "auto",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "textMode": "auto"
-        },
-        "pluginVersion": "",
-        "targets": [
-          {
-            "datasource": {
-              "type": "grafana-mqtt-datasource",
-              "uid": "-wfkoLB4z"
-            },
-            "refId": "A",
-            "topic": "/logs/access"
-          }
-        ],
-        "title": "5G PCI",
-        "transformations": [
-          {
-            "id": "filterFieldsByName",
-            "options": {
-              "include": {
-                "names": [
-                  "Time",
-                  "5g_pci"
-                ]
-              }
+              ],
+              "source": "CPM"
             }
           }
         ],
@@ -1395,8 +989,8 @@
       ]
     },
     "timezone": "",
-    "title": "Grafana Dashboard",
-    "uid": "wACnaqxVz",
-    "version": 5,
+    "title": "Dashboard 400",
+    "uid": "wACnaqxVzd",
+    "version": 3,
     "weekStart": ""
   }
