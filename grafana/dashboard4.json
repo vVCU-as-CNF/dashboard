@@ -44,7 +44,7 @@
     {
       "datasource": {
         "type": "grafana-mqtt-datasource",
-        "uid": "97DYU5LVk"
+        "uid": "ilvRVuL4k"
       },
       "fieldConfig": {
         "defaults": {
@@ -63,8 +63,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           }
@@ -152,7 +151,7 @@
         {
           "datasource": {
             "type": "grafana-mqtt-datasource",
-            "uid": "97DYU5LVk"
+            "uid": "ilvRVuL4k"
           },
           "hide": false,
           "refId": "A",
@@ -234,7 +233,7 @@
     {
       "datasource": {
         "type": "grafana-mqtt-datasource",
-        "uid": "97DYU5LVk"
+        "uid": "ilvRVuL4k"
       },
       "fieldConfig": {
         "defaults": {
@@ -253,8 +252,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -344,7 +342,7 @@
         {
           "datasource": {
             "type": "grafana-mqtt-datasource",
-            "uid": "97DYU5LVk"
+            "uid": "ilvRVuL4k"
           },
           "refId": "A",
           "topic": "/obu/inqueue/json/3306/CPM"
@@ -425,7 +423,7 @@
     {
       "datasource": {
         "type": "grafana-mqtt-datasource",
-        "uid": "97DYU5LVk"
+        "uid": "ilvRVuL4k"
       },
       "fieldConfig": {
         "defaults": {
@@ -444,8 +442,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -701,7 +698,7 @@
         {
           "datasource": {
             "type": "grafana-mqtt-datasource",
-            "uid": "97DYU5LVk"
+            "uid": "ilvRVuL4k"
           },
           "hide": false,
           "refId": "A",
@@ -777,7 +774,7 @@
     {
       "datasource": {
         "type": "grafana-mqtt-datasource",
-        "uid": "97DYU5LVk"
+        "uid": "ilvRVuL4k"
       },
       "fieldConfig": {
         "defaults": {
@@ -789,8 +786,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -827,7 +823,7 @@
         {
           "datasource": {
             "type": "grafana-mqtt-datasource",
-            "uid": "97DYU5LVk"
+            "uid": "ilvRVuL4k"
           },
           "hide": false,
           "refId": "A",
@@ -855,7 +851,7 @@
     {
       "datasource": {
         "type": "grafana-mqtt-datasource",
-        "uid": "97DYU5LVk"
+        "uid": "ilvRVuL4k"
       },
       "fieldConfig": {
         "defaults": {
@@ -867,8 +863,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -919,7 +914,7 @@
         {
           "datasource": {
             "type": "grafana-mqtt-datasource",
-            "uid": "97DYU5LVk"
+            "uid": "ilvRVuL4k"
           },
           "hide": false,
           "refId": "A",
@@ -948,7 +943,7 @@
     {
       "datasource": {
         "type": "grafana-mqtt-datasource",
-        "uid": "97DYU5LVk"
+        "uid": "ilvRVuL4k"
       },
       "fieldConfig": {
         "defaults": {
@@ -960,8 +955,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1012,7 +1006,7 @@
         {
           "datasource": {
             "type": "grafana-mqtt-datasource",
-            "uid": "97DYU5LVk"
+            "uid": "ilvRVuL4k"
           },
           "hide": false,
           "refId": "A",
@@ -1041,7 +1035,7 @@
     {
       "datasource": {
         "type": "grafana-mqtt-datasource",
-        "uid": "97DYU5LVk"
+        "uid": "ilvRVuL4k"
       },
       "fieldConfig": {
         "defaults": {
@@ -1053,8 +1047,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1105,7 +1098,7 @@
         {
           "datasource": {
             "type": "grafana-mqtt-datasource",
-            "uid": "97DYU5LVk"
+            "uid": "ilvRVuL4k"
           },
           "hide": false,
           "refId": "A",
@@ -1134,7 +1127,7 @@
     {
       "datasource": {
         "type": "grafana-mqtt-datasource",
-        "uid": "97DYU5LVk"
+        "uid": "ilvRVuL4k"
       },
       "description": "",
       "fieldConfig": {
@@ -1177,8 +1170,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           }
@@ -1212,8 +1204,8 @@
       },
       "gridPos": {
         "h": 5,
-        "w": 6,
-        "x": 6,
+        "w": 12,
+        "x": 0,
         "y": 17
       },
       "id": 18,
@@ -1234,7 +1226,7 @@
         {
           "datasource": {
             "type": "grafana-mqtt-datasource",
-            "uid": "97DYU5LVk"
+            "uid": "ilvRVuL4k"
           },
           "refId": "A",
           "topic": "obu/inqueue/json/3306/LOGS/network"
@@ -1254,7 +1246,7 @@
     "list": []
   },
   "time": {
-    "from": "now-30s",
+    "from": "now-1m",
     "to": "now"
   },
   "timepicker": {
@@ -1265,6 +1257,6 @@
   "timezone": "",
   "title": "Dashboard 4",
   "uid": "wACnaqxVz",
-  "version": 25,
+  "version": 8,
   "weekStart": ""
 }
