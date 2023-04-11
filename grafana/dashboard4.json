@@ -155,7 +155,7 @@
             "uid": "97DYU5LVk"
           },
           "hide": false,
-          "refId": "B",
+          "refId": "A",
           "topic": "obu/inqueue/json/3306/CAM"
         }
       ],
@@ -705,7 +705,7 @@
           },
           "hide": false,
           "refId": "A",
-          "topic": "obu/outqueue/json/3306/perceivedObjects"
+          "topic": "obu/outqueue/json/3306/perceivedObjects/distance"
         }
       ],
       "title": "vOBU Perceived Objects Location",
@@ -799,11 +799,89 @@
             ]
           }
         },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 0,
+        "y": 12
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-mqtt-datasource",
+            "uid": "97DYU5LVk"
+          },
+          "hide": false,
+          "refId": "A",
+          "topic": "obu/inqueue/json/3306/CPM"
+        }
+      ],
+      "title": "Perceived Objects",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "format": "json",
+            "jsonPaths": [
+              {
+                "alias": "perceivedObjects",
+                "path": "cpm.cpmParameters.numberOfPerceivedObjects"
+              }
+            ],
+            "source": "CPM"
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-mqtt-datasource",
+        "uid": "97DYU5LVk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
         "overrides": [
           {
             "matcher": {
               "id": "byName",
-              "options": "speed"
+              "options": "0"
             },
             "properties": [
               {
@@ -819,11 +897,11 @@
       },
       "gridPos": {
         "h": 5,
-        "w": 6,
-        "x": 0,
+        "w": 3,
+        "x": 3,
         "y": 12
       },
-      "id": 4,
+      "id": 12,
       "options": {
         "orientation": "auto",
         "reduceOptions": {
@@ -845,10 +923,10 @@
           },
           "hide": false,
           "refId": "A",
-          "topic": "obu/inqueue/json/3306/CAM"
+          "topic": "obu/outqueue/json/3306/perceivedObjects/speed"
         }
       ],
-      "title": "vOBU Speed (km/h)",
+      "title": "vOBU Avg xSpeed (km/h)",
       "transformations": [
         {
           "id": "extractFields",
@@ -856,37 +934,12 @@
             "format": "json",
             "jsonPaths": [
               {
-                "alias": "speed_raw",
-                "path": "cam.camParameters.highFrequencyContainer.basicVehicleContainerHighFrequency.speed.speedValue"
+                "path": "0.xSpeed"
               }
             ],
-            "source": "CAM"
-          }
-        },
-        {
-          "id": "calculateField",
-          "options": {
-            "alias": "speed",
-            "binary": {
-              "left": "speed_raw",
-              "operator": "/",
-              "reducer": "sum",
-              "right": "36"
-            },
-            "mode": "binary",
-            "reduce": {
-              "reducer": "sum"
-            }
-          }
-        },
-        {
-          "id": "organize",
-          "options": {
-            "excludeByName": {
-              "speed_raw": true
-            },
-            "indexByName": {},
-            "renameByName": {}
+            "keepTime": false,
+            "replace": false,
+            "source": "Value"
           }
         }
       ],
@@ -917,19 +970,32 @@
             ]
           }
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "0"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 5,
-        "w": 6,
+        "w": 3,
         "x": 6,
         "y": 12
       },
-      "id": 8,
+      "id": 13,
       "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
@@ -938,7 +1004,8 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
       },
       "pluginVersion": "",
       "targets": [
@@ -949,10 +1016,10 @@
           },
           "hide": false,
           "refId": "A",
-          "topic": "obu/inqueue/json/3306/CPM"
+          "topic": "obu/outqueue/json/3306/perceivedObjects/speed"
         }
       ],
-      "title": "vOBU Number of Perceived Objects",
+      "title": "vOBU Avg ySpeed (km/h)",
       "transformations": [
         {
           "id": "extractFields",
@@ -960,15 +1027,222 @@
             "format": "json",
             "jsonPaths": [
               {
-                "alias": "perceivedObjects",
-                "path": "cpm.cpmParameters.numberOfPerceivedObjects"
+                "path": "0.ySpeed"
               }
             ],
-            "source": "CPM"
+            "keepTime": false,
+            "replace": false,
+            "source": "Value"
           }
         }
       ],
-      "type": "stat"
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "grafana-mqtt-datasource",
+        "uid": "97DYU5LVk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "0"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 9,
+        "y": 12
+      },
+      "id": 14,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-mqtt-datasource",
+            "uid": "97DYU5LVk"
+          },
+          "hide": false,
+          "refId": "A",
+          "topic": "obu/outqueue/json/3306/perceivedObjects/speed"
+        }
+      ],
+      "title": "vOBU Avg Speed (km/h)",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "format": "json",
+            "jsonPaths": [
+              {
+                "path": "0.instantSpeed"
+              }
+            ],
+            "keepTime": false,
+            "replace": false,
+            "source": "Value"
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "grafana-mqtt-datasource",
+        "uid": "97DYU5LVk"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "rx_bytes"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Recieve"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "tx_bytes"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Transmission"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 6,
+        "y": 17
+      },
+      "id": 18,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-mqtt-datasource",
+            "uid": "97DYU5LVk"
+          },
+          "refId": "A",
+          "topic": "obu/inqueue/json/3306/LOGS/network"
+        }
+      ],
+      "title": "Network Recv. Rate (b/s)",
+      "transformations": [],
+      "type": "timeseries"
     }
   ],
   "refresh": "",
@@ -985,12 +1259,12 @@
   },
   "timepicker": {
     "refresh_intervals": [
-      "30s"
+      "10s"
     ]
   },
   "timezone": "",
   "title": "Dashboard 4",
   "uid": "wACnaqxVz",
-  "version": 3,
+  "version": 25,
   "weekStart": ""
 }
