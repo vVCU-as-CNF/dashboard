@@ -44,7 +44,7 @@
     {
       "datasource": {
         "type": "grafana-mqtt-datasource",
-        "uid": "ilvRVuL4k"
+        "uid": "97DYU5LVk"
       },
       "fieldConfig": {
         "defaults": {
@@ -151,7 +151,7 @@
         {
           "datasource": {
             "type": "grafana-mqtt-datasource",
-            "uid": "ilvRVuL4k"
+            "uid": "97DYU5LVk"
           },
           "hide": false,
           "refId": "A",
@@ -233,7 +233,7 @@
     {
       "datasource": {
         "type": "grafana-mqtt-datasource",
-        "uid": "ilvRVuL4k"
+        "uid": "97DYU5LVk"
       },
       "fieldConfig": {
         "defaults": {
@@ -342,7 +342,7 @@
         {
           "datasource": {
             "type": "grafana-mqtt-datasource",
-            "uid": "ilvRVuL4k"
+            "uid": "97DYU5LVk"
           },
           "refId": "A",
           "topic": "/obu/inqueue/json/3306/CPM"
@@ -423,7 +423,7 @@
     {
       "datasource": {
         "type": "grafana-mqtt-datasource",
-        "uid": "ilvRVuL4k"
+        "uid": "97DYU5LVk"
       },
       "fieldConfig": {
         "defaults": {
@@ -698,7 +698,7 @@
         {
           "datasource": {
             "type": "grafana-mqtt-datasource",
-            "uid": "ilvRVuL4k"
+            "uid": "97DYU5LVk"
           },
           "hide": false,
           "refId": "A",
@@ -774,7 +774,7 @@
     {
       "datasource": {
         "type": "grafana-mqtt-datasource",
-        "uid": "ilvRVuL4k"
+        "uid": "97DYU5LVk"
       },
       "fieldConfig": {
         "defaults": {
@@ -823,7 +823,7 @@
         {
           "datasource": {
             "type": "grafana-mqtt-datasource",
-            "uid": "ilvRVuL4k"
+            "uid": "97DYU5LVk"
           },
           "hide": false,
           "refId": "A",
@@ -851,7 +851,7 @@
     {
       "datasource": {
         "type": "grafana-mqtt-datasource",
-        "uid": "ilvRVuL4k"
+        "uid": "97DYU5LVk"
       },
       "fieldConfig": {
         "defaults": {
@@ -914,7 +914,7 @@
         {
           "datasource": {
             "type": "grafana-mqtt-datasource",
-            "uid": "ilvRVuL4k"
+            "uid": "97DYU5LVk"
           },
           "hide": false,
           "refId": "A",
@@ -943,7 +943,7 @@
     {
       "datasource": {
         "type": "grafana-mqtt-datasource",
-        "uid": "ilvRVuL4k"
+        "uid": "97DYU5LVk"
       },
       "fieldConfig": {
         "defaults": {
@@ -1006,7 +1006,7 @@
         {
           "datasource": {
             "type": "grafana-mqtt-datasource",
-            "uid": "ilvRVuL4k"
+            "uid": "97DYU5LVk"
           },
           "hide": false,
           "refId": "A",
@@ -1035,7 +1035,7 @@
     {
       "datasource": {
         "type": "grafana-mqtt-datasource",
-        "uid": "ilvRVuL4k"
+        "uid": "97DYU5LVk"
       },
       "fieldConfig": {
         "defaults": {
@@ -1098,7 +1098,7 @@
         {
           "datasource": {
             "type": "grafana-mqtt-datasource",
-            "uid": "ilvRVuL4k"
+            "uid": "97DYU5LVk"
           },
           "hide": false,
           "refId": "A",
@@ -1127,7 +1127,7 @@
     {
       "datasource": {
         "type": "grafana-mqtt-datasource",
-        "uid": "ilvRVuL4k"
+        "uid": "97DYU5LVk"
       },
       "description": "",
       "fieldConfig": {
@@ -1226,15 +1226,187 @@
         {
           "datasource": {
             "type": "grafana-mqtt-datasource",
-            "uid": "ilvRVuL4k"
+            "uid": "97DYU5LVk"
           },
           "refId": "A",
           "topic": "obu/inqueue/json/3306/LOGS/network"
         }
       ],
-      "title": "Network Recv. Rate (b/s)",
+      "title": "Network Flow (b/s)",
       "transformations": [],
       "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-mqtt-datasource",
+        "uid": "97DYU5LVk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "5g_rsrp"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "RSRP"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "red",
+                      "value": -100
+                    },
+                    {
+                      "color": "#EAB839",
+                      "value": -90
+                    },
+                    {
+                      "color": "orange",
+                      "value": -80
+                    },
+                    {
+                      "color": "green",
+                      "value": 1000
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "unit",
+                "value": "dBm"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "5g_rsrq"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "RSRQ"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "red",
+                      "value": -20
+                    },
+                    {
+                      "color": "#EAB839",
+                      "value": -15
+                    },
+                    {
+                      "color": "orange",
+                      "value": -10
+                    },
+                    {
+                      "color": "green",
+                      "value": 10000
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "unit",
+                "value": "dB"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "5g_pci"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PCI"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 12,
+        "y": 17
+      },
+      "id": 20,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-mqtt-datasource",
+            "uid": "97DYU5LVk"
+          },
+          "refId": "A",
+          "topic": "obu/inqueue/json/3306/LOGS/access"
+        }
+      ],
+      "title": "Signal Quality",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "5g_pci": true,
+              "Time": true,
+              "mcc": true,
+              "mnc": true,
+              "ratmode": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "stat"
     }
   ],
   "refresh": "",
@@ -1246,7 +1418,7 @@
     "list": []
   },
   "time": {
-    "from": "now-1m",
+    "from": "now-30s",
     "to": "now"
   },
   "timepicker": {
@@ -1257,6 +1429,6 @@
   "timezone": "",
   "title": "Dashboard 4",
   "uid": "wACnaqxVz",
-  "version": 8,
+  "version": 37,
   "weekStart": ""
 }
