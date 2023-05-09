@@ -4,7 +4,7 @@ import signal
 
 import paho.mqtt.client as mqtt
 
-broker_host = "10.255.28.57"
+broker_host = "10.255.32.4"
 broker_port = 1883
 virtual_itss_id = 3306
 
