@@ -12,14 +12,13 @@ services:
     ports:
       - 3000:3000
   
-
-  dashboard_mosquitto:
-    image: eclipse-mosquitto:latest
-    container_name: dashboard_mosquitto
-    volumes:
-      - ./mosquitto:/mosquitto/config
-    ports:
-      - 1883:1883
+  # dashboard_mosquitto:
+  #   image: eclipse-mosquitto:latest
+  #   container_name: dashboard_mosquitto
+  #   volumes:
+  #     - ./mosquitto:/mosquitto/config
+  #   ports:
+  #     - 1883:1883
 
   dashboard_proxy:
     container_name: dashboard_proxy

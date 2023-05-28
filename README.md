@@ -1,36 +1,43 @@
-# it2s-grafana-dashboard
+# Grafana Dashboard
 This repository provides a docker stack to display info from virtual ITS station digital twins, via MQTT broker.
+
+<br></br>
 
 ## Architeture
 This stack implements the services contained in green on the following image:
 
-![architecture](./doc/architecture.png)
+![Architeture](doc/architecture.png)
 
-## Notes
-* MQTT payloads are always expected to be in JSON format;
-* MQTT payloads from the digital twins are published at 'obu/inqueue/json/`<`stationID`>`/`<`messageType`>`';
-* The proxy currently exists only to parse the perceived objects contained in CPMs;
-* A template is provided in 'grafana/template.json' that can be imported to a functional dashboard;
-* Environment variables can be set directly in the grafana container to install specific plugins on start:
-```
-docker run -d -p 3000:3000 --name=grafana -e "GF_INSTALL_PLUGINS=grafana-mqtt-datasource" grafana/grafana-enterprise
-```
-* Topics currently used in the dashboard provided by the template:
-```
-# Used to get information directly from CAMs:
-obu/inqueue/json/<stationID>/CAM
-# Used to get information directly from CPMs:
-obu/inqueue/json/<stationID>/CPM
-# Used to get information parsed from the CPMs (through the proxy):
-obu/outqueue/json/<stationID>/perceivedObjects
-# Used to get the staiton's 5G module access level info:
-logs/access
-```
+Image 1 - Architeture
 
-## TODO
-* Choose better MQTT topics structure, mostly from access logs.
-* The proxy currently has the MQTT server host hard coded. This should be set as an environment variable of the container;
-* The template should be extended with additional functionalities/dashboards once the digital twin's orchestrator exists, such as:
-    * Which ITS stations are virtualized in each MEC platform;
-    * Network level latencies;
-    * Application level lantecies.
+<br></br>
+
+## How to Run
+
+1. Run the following command:
+
+    ```bash
+    sudo docker compose up --build
+    ```
+
+2. The connect to the MQTT Message Broker will be made to our VM **10.255.32.4**.
+
+    1. Note: The absence of authorization during the connecting to the VM will be noticed **if IT-VPN is off**.
+
+3. Go to [localhost:3000](http://localhost:3000/).
+
+4. The dashboard templates are available inside the grafana folder, in this repository.
+
+<br></br>
+
+## Grafana Dashboards
+
+![Main Dashboard](doc/main_dashboard.png)
+
+Image 2 - Main Dashboard
+
+<br></br>
+
+![Digital Twin Dashboard](doc/dt_dashboard.png)
+
+Image 3 - Digital Twin Dashboard

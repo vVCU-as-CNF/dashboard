@@ -10,13 +10,13 @@ virtual_itss_id = 3306
 
 def create_clients():
     mqtt_clients = []
-    
+
     client = mqtt.Client("cpm_messages")
     client.on_message = cpm_message_callback
     client.connect(broker_host, broker_port)
     subscribe_topic = "obu/inqueue/json/{}/CPM".format(virtual_itss_id)
-    #subscribe_topic = "obu/inqueue/json/3306/CPM"
     client.subscribe(subscribe_topic)
+    print("Subscibed to "+subscribe_topic)
     mqtt_clients.append(client)
 
     return mqtt_clients

@@ -11,12 +11,6 @@
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
         "name": "Annotations & Alerts",
-        "target": {
-          "limit": 100,
-          "matchAny": false,
-          "tags": [],
-          "type": "dashboard"
-        },
         "type": "dashboard"
       }
     ]
@@ -29,22 +23,22 @@
     {
       "asDropdown": false,
       "icon": "external link",
-      "includeVars": false,
+      "includeVars": true,
       "keepTime": false,
       "tags": [],
       "targetBlank": false,
-      "title": "Dashboard 4",
+      "title": "Manager Dashboard",
       "tooltip": "",
       "type": "dashboards",
       "url": ""
     }
   ],
-  "liveNow": false,
+  "liveNow": true,
   "panels": [
     {
       "datasource": {
         "type": "grafana-mqtt-datasource",
-        "uid": "97DYU5LVk"
+        "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
       },
       "fieldConfig": {
         "defaults": {
@@ -63,7 +57,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           }
@@ -140,9 +135,9 @@
           "allLayers": true,
           "id": "fit",
           "lastOnly": false,
-          "lat": 0,
+          "lat": 38.699252,
           "layer": "Layer 1",
-          "lon": 0,
+          "lon": -9.1834,
           "zoom": 15
         }
       },
@@ -151,14 +146,13 @@
         {
           "datasource": {
             "type": "grafana-mqtt-datasource",
-            "uid": "97DYU5LVk"
+            "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
           },
-          "hide": false,
           "refId": "A",
           "topic": "obu/inqueue/json/3306/CAM"
         }
       ],
-      "title": "OBU Location",
+      "title": "vOBU Location",
       "transformations": [
         {
           "id": "extractFields",
@@ -233,7 +227,7 @@
     {
       "datasource": {
         "type": "grafana-mqtt-datasource",
-        "uid": "97DYU5LVk"
+        "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
       },
       "fieldConfig": {
         "defaults": {
@@ -252,7 +246,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -342,7 +337,7 @@
         {
           "datasource": {
             "type": "grafana-mqtt-datasource",
-            "uid": "97DYU5LVk"
+            "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
           },
           "refId": "A",
           "topic": "/obu/inqueue/json/3306/CPM"
@@ -423,7 +418,7 @@
     {
       "datasource": {
         "type": "grafana-mqtt-datasource",
-        "uid": "97DYU5LVk"
+        "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
       },
       "fieldConfig": {
         "defaults": {
@@ -442,7 +437,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -454,7 +450,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 17,
+        "h": 16,
         "w": 12,
         "x": 12,
         "y": 0
@@ -688,9 +684,9 @@
         "view": {
           "allLayers": true,
           "id": "coords",
-          "lat": 40.6348,
-          "lon": -8.659,
-          "zoom": 18
+          "lat": 40.641114,
+          "lon": -8.653258,
+          "zoom": 16
         }
       },
       "pluginVersion": "",
@@ -698,7 +694,7 @@
         {
           "datasource": {
             "type": "grafana-mqtt-datasource",
-            "uid": "97DYU5LVk"
+            "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
           },
           "hide": false,
           "refId": "A",
@@ -774,7 +770,7 @@
     {
       "datasource": {
         "type": "grafana-mqtt-datasource",
-        "uid": "97DYU5LVk"
+        "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
       },
       "fieldConfig": {
         "defaults": {
@@ -786,7 +782,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -798,7 +795,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
+        "h": 4,
         "w": 3,
         "x": 0,
         "y": 12
@@ -823,7 +820,7 @@
         {
           "datasource": {
             "type": "grafana-mqtt-datasource",
-            "uid": "97DYU5LVk"
+            "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
           },
           "hide": false,
           "refId": "A",
@@ -851,7 +848,7 @@
     {
       "datasource": {
         "type": "grafana-mqtt-datasource",
-        "uid": "97DYU5LVk"
+        "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
       },
       "fieldConfig": {
         "defaults": {
@@ -863,14 +860,16 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "velocitykmh"
         },
         "overrides": [
           {
@@ -891,7 +890,7 @@
         ]
       },
       "gridPos": {
-        "h": 5,
+        "h": 4,
         "w": 3,
         "x": 3,
         "y": 12
@@ -914,14 +913,14 @@
         {
           "datasource": {
             "type": "grafana-mqtt-datasource",
-            "uid": "97DYU5LVk"
+            "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
           },
           "hide": false,
           "refId": "A",
           "topic": "obu/outqueue/json/3306/perceivedObjects/speed"
         }
       ],
-      "title": "vOBU Avg xSpeed (km/h)",
+      "title": "vOBU Avg xSpeed",
       "transformations": [
         {
           "id": "extractFields",
@@ -943,7 +942,7 @@
     {
       "datasource": {
         "type": "grafana-mqtt-datasource",
-        "uid": "97DYU5LVk"
+        "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
       },
       "fieldConfig": {
         "defaults": {
@@ -955,14 +954,16 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "velocitykmh"
         },
         "overrides": [
           {
@@ -983,7 +984,7 @@
         ]
       },
       "gridPos": {
-        "h": 5,
+        "h": 4,
         "w": 3,
         "x": 6,
         "y": 12
@@ -1006,14 +1007,14 @@
         {
           "datasource": {
             "type": "grafana-mqtt-datasource",
-            "uid": "97DYU5LVk"
+            "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
           },
           "hide": false,
           "refId": "A",
           "topic": "obu/outqueue/json/3306/perceivedObjects/speed"
         }
       ],
-      "title": "vOBU Avg ySpeed (km/h)",
+      "title": "vOBU Avg ySpeed",
       "transformations": [
         {
           "id": "extractFields",
@@ -1035,7 +1036,7 @@
     {
       "datasource": {
         "type": "grafana-mqtt-datasource",
-        "uid": "97DYU5LVk"
+        "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
       },
       "fieldConfig": {
         "defaults": {
@@ -1047,14 +1048,16 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "velocitykmh"
         },
         "overrides": [
           {
@@ -1075,7 +1078,7 @@
         ]
       },
       "gridPos": {
-        "h": 5,
+        "h": 4,
         "w": 3,
         "x": 9,
         "y": 12
@@ -1098,14 +1101,14 @@
         {
           "datasource": {
             "type": "grafana-mqtt-datasource",
-            "uid": "97DYU5LVk"
+            "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
           },
           "hide": false,
           "refId": "A",
           "topic": "obu/outqueue/json/3306/perceivedObjects/speed"
         }
       ],
-      "title": "vOBU Avg Speed (km/h)",
+      "title": "vOBU Avg Speed",
       "transformations": [
         {
           "id": "extractFields",
@@ -1127,7 +1130,7 @@
     {
       "datasource": {
         "type": "grafana-mqtt-datasource",
-        "uid": "97DYU5LVk"
+        "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
       },
       "description": "",
       "fieldConfig": {
@@ -1170,10 +1173,12 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
-          }
+          },
+          "unit": "Bps"
         },
         "overrides": [
           {
@@ -1206,7 +1211,7 @@
         "h": 5,
         "w": 12,
         "x": 0,
-        "y": 17
+        "y": 16
       },
       "id": 18,
       "options": {
@@ -1226,20 +1231,20 @@
         {
           "datasource": {
             "type": "grafana-mqtt-datasource",
-            "uid": "97DYU5LVk"
+            "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
           },
           "refId": "A",
           "topic": "obu/inqueue/json/3306/LOGS/network"
         }
       ],
-      "title": "Network Flow (b/s)",
+      "title": "Network Flow",
       "transformations": [],
       "type": "timeseries"
     },
     {
       "datasource": {
         "type": "grafana-mqtt-datasource",
-        "uid": "97DYU5LVk"
+        "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
       },
       "fieldConfig": {
         "defaults": {
@@ -1251,7 +1256,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           }
@@ -1273,7 +1279,8 @@
                   "mode": "absolute",
                   "steps": [
                     {
-                      "color": "green"
+                      "color": "green",
+                      "value": null
                     },
                     {
                       "color": "red",
@@ -1316,7 +1323,8 @@
                   "mode": "absolute",
                   "steps": [
                     {
-                      "color": "green"
+                      "color": "green",
+                      "value": null
                     },
                     {
                       "color": "red",
@@ -1361,7 +1369,7 @@
         "h": 5,
         "w": 12,
         "x": 12,
-        "y": 17
+        "y": 16
       },
       "id": 20,
       "options": {
@@ -1383,7 +1391,7 @@
         {
           "datasource": {
             "type": "grafana-mqtt-datasource",
-            "uid": "97DYU5LVk"
+            "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
           },
           "refId": "A",
           "topic": "obu/inqueue/json/3306/LOGS/access"
@@ -1410,7 +1418,6 @@
     }
   ],
   "refresh": "",
-  "revision": 1,
   "schemaVersion": 38,
   "style": "dark",
   "tags": [],
@@ -1418,17 +1425,19 @@
     "list": []
   },
   "time": {
-    "from": "now-30s",
+    "from": "now-1m",
     "to": "now"
   },
   "timepicker": {
     "refresh_intervals": [
-      "10s"
+      "5s",
+      "10s",
+      "30s"
     ]
   },
   "timezone": "",
-  "title": "Dashboard 4",
-  "uid": "wACnaqxVz",
-  "version": 37,
+  "title": "Main Dashboard",
+  "uid": "a95b957e-022b-44c8-a706-79ddd2acd931",
+  "version": 21,
   "weekStart": ""
 }
