@@ -60,7 +60,7 @@
       },
       "gridPos": {
         "h": 5,
-        "w": 6,
+        "w": 4,
         "x": 0,
         "y": 0
       },
@@ -78,7 +78,7 @@
           "values": false
         },
         "text": {
-          "valueSize": 40
+          "valueSize": 30
         },
         "textMode": "auto"
       },
@@ -141,8 +141,8 @@
       },
       "gridPos": {
         "h": 5,
-        "w": 5,
-        "x": 6,
+        "w": 4,
+        "x": 4,
         "y": 0
       },
       "id": 19,
@@ -155,7 +155,7 @@
           "calcs": [
             "lastNotNull"
           ],
-          "fields": "/^nsd_name$/",
+          "fields": "/^name$/",
           "values": false
         },
         "text": {},
@@ -181,7 +181,7 @@
             "jsonPaths": [
               {
                 "alias": "",
-                "path": "nsd_name"
+                "path": "name"
               }
             ],
             "keepTime": false,
@@ -217,8 +217,8 @@
       },
       "gridPos": {
         "h": 5,
-        "w": 5,
-        "x": 11,
+        "w": 4,
+        "x": 8,
         "y": 0
       },
       "id": 4,
@@ -271,6 +271,76 @@
           "color": {
             "mode": "thresholds"
           },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "super-light-orange",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 12,
+        "y": 0
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-mqtt-datasource",
+            "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
+          },
+          "refId": "A",
+          "topic": "obu/inqueue/json/3306/CAM"
+        }
+      ],
+      "title": "STATION ID",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "format": "json",
+            "jsonPaths": [
+              {
+                "path": "header.stationID"
+              }
+            ],
+            "replace": true,
+            "source": "CAM"
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {},
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
           "custom": {
             "hideFrom": {
               "legend": false,
@@ -296,7 +366,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 11,
+        "h": 18,
         "w": 8,
         "x": 16,
         "y": 0
@@ -509,7 +579,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 3,
+        "h": 4,
         "w": 4,
         "x": 0,
         "y": 5
@@ -568,10 +638,11 @@
       "fieldConfig": {
         "defaults": {
           "custom": {
-            "align": "auto",
+            "align": "center",
             "cellOptions": {
               "type": "auto"
             },
+            "filterable": false,
             "inspect": false
           },
           "mappings": [],
@@ -592,7 +663,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 3,
+        "h": 4,
         "w": 12,
         "x": 4,
         "y": 5
@@ -608,7 +679,7 @@
           ],
           "show": false
         },
-        "showHeader": false
+        "showHeader": true
       },
       "pluginVersion": "",
       "targets": [
@@ -626,14 +697,27 @@
         {
           "id": "extractFields",
           "options": {
-            "format": "json",
-            "jsonPaths": [
-              {
-                "path": ""
-              }
-            ],
+            "keepTime": true,
             "replace": true,
             "source": "Jarvis"
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "Time"
+              }
+            ]
+          }
+        },
+        {
+          "id": "limit",
+          "options": {
+            "limitField": 1
           }
         }
       ],
@@ -667,10 +751,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 3,
+        "h": 4,
         "w": 4,
         "x": 0,
-        "y": 8
+        "y": 9
       },
       "id": 11,
       "options": {
@@ -726,14 +810,12 @@
       },
       "fieldConfig": {
         "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
           "custom": {
-            "align": "auto",
+            "align": "center",
             "cellOptions": {
               "type": "auto"
             },
+            "filterable": false,
             "inspect": false
           },
           "mappings": [],
@@ -754,12 +836,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 3,
+        "h": 4,
         "w": 12,
         "x": 4,
-        "y": 8
+        "y": 9
       },
-      "id": 17,
+      "id": 20,
       "options": {
         "cellHeight": "sm",
         "footer": {
@@ -770,7 +852,7 @@
           ],
           "show": false
         },
-        "showHeader": false
+        "showHeader": true
       },
       "pluginVersion": "",
       "targets": [
@@ -788,14 +870,27 @@
         {
           "id": "extractFields",
           "options": {
-            "format": "json",
-            "jsonPaths": [
-              {
-                "path": ""
-              }
-            ],
+            "keepTime": true,
             "replace": true,
             "source": "Jarvis2"
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "Time"
+              }
+            ]
+          }
+        },
+        {
+          "id": "limit",
+          "options": {
+            "limitField": 1
           }
         }
       ],
@@ -826,10 +921,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
+        "h": 5,
         "w": 4,
         "x": 0,
-        "y": 11
+        "y": 13
       },
       "id": 5,
       "options": {
@@ -919,10 +1014,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
+        "h": 5,
         "w": 12,
         "x": 4,
-        "y": 11
+        "y": 13
       },
       "id": 9,
       "options": {
@@ -969,91 +1064,6 @@
         "type": "grafana-mqtt-datasource",
         "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
       },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          },
-          "unit": "Bps"
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "rx_bytes"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "Recieve"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "tx_bytes"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "Transmission"
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 8,
-        "x": 16,
-        "y": 11
-      },
-      "id": 14,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "",
-      "targets": [
-        {
-          "datasource": {
-            "type": "grafana-mqtt-datasource",
-            "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
-          },
-          "refId": "A",
-          "topic": "obu/inqueue/json/3306/LOGS/network"
-        }
-      ],
-      "title": "OBU NETWORK FLOW",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "grafana-mqtt-datasource",
-        "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
-      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1074,10 +1084,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
+        "h": 5,
         "w": 4,
         "x": 0,
-        "y": 17
+        "y": 18
       },
       "id": 6,
       "options": {
@@ -1167,10 +1177,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
+        "h": 5,
         "w": 12,
         "x": 4,
-        "y": 17
+        "y": 18
       },
       "id": 10,
       "options": {
@@ -1212,35 +1222,65 @@
       "type": "timeseries"
     },
     {
-      "datasource": {},
+      "datasource": {
+        "type": "grafana-mqtt-datasource",
+        "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
+      },
+      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "palette-classic"
           },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "super-light-orange",
+                "color": "green",
                 "value": null
               }
             ]
-          }
+          },
+          "unit": "Bps"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "rx_bytes"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Recieve"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "tx_bytes"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Transmission"
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
-        "h": 6,
-        "w": 4,
+        "h": 5,
+        "w": 8,
         "x": 16,
-        "y": 17
+        "y": 18
       },
-      "id": 8,
+      "id": 14,
       "options": {
         "colorMode": "value",
-        "graphMode": "none",
+        "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
@@ -1260,110 +1300,10 @@
             "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
           },
           "refId": "A",
-          "topic": "obu/inqueue/json/3306/CAM"
+          "topic": "obu/inqueue/json/3306/LOGS/network"
         }
       ],
-      "title": "STATION ID",
-      "transformations": [
-        {
-          "id": "extractFields",
-          "options": {
-            "format": "json",
-            "jsonPaths": [
-              {
-                "path": "header.stationID"
-              }
-            ],
-            "replace": true,
-            "source": "CAM"
-          }
-        }
-      ],
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "grafana-mqtt-datasource",
-        "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "match": "null+nan",
-                "result": {
-                  "color": "super-light-green",
-                  "index": 0,
-                  "text": "Wait Speed"
-                }
-              },
-              "type": "special"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          },
-          "unit": "velocitykmh"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 4,
-        "x": 20,
-        "y": 17
-      },
-      "id": 13,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "/^\\[0\\]\\.instantSpeed$/",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "",
-      "targets": [
-        {
-          "datasource": {
-            "type": "grafana-mqtt-datasource",
-            "uid": "b25a1d27-018d-4a18-95c1-bf41bf659be6"
-          },
-          "refId": "A",
-          "topic": "obu/outqueue/json/3306/perceivedObjects/speed"
-        }
-      ],
-      "title": "OBU SPEED",
-      "transformations": [
-        {
-          "id": "extractFields",
-          "options": {
-            "format": "json",
-            "jsonPaths": [
-              {
-                "path": "[0].instantSpeed"
-              }
-            ],
-            "source": "Value"
-          }
-        }
-      ],
+      "title": "OBU NETWORK FLOW",
       "type": "stat"
     }
   ],
@@ -1389,6 +1329,6 @@
   "timezone": "",
   "title": "Manager Dashboard",
   "uid": "dbd697ba-c1ff-41ab-8773-4c98f98de26f",
-  "version": 127,
+  "version": 150,
   "weekStart": ""
 }
