@@ -684,9 +684,10 @@
         "view": {
           "allLayers": true,
           "id": "coords",
-          "lat": 40.641114,
-          "lon": -8.653258,
-          "zoom": 16
+          "lat": 40.629096,
+          "lon": -8.700292,
+          "shared": false,
+          "zoom": 17
         }
       },
       "pluginVersion": "",
@@ -784,10 +785,6 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           }
@@ -862,10 +859,6 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
@@ -956,10 +949,6 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
@@ -1050,10 +1039,6 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
@@ -1438,6 +1423,6 @@
   "timezone": "",
   "title": "Main Dashboard",
   "uid": "a95b957e-022b-44c8-a706-79ddd2acd931",
-  "version": 21,
+  "version": 24,
   "weekStart": ""
 }

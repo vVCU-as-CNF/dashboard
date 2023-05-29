@@ -276,7 +276,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "super-light-orange",
+                "color": "super-light-yellow",
                 "value": null
               }
             ]
@@ -637,6 +637,10 @@
       },
       "fieldConfig": {
         "defaults": {
+          "color": {
+            "fixedColor": "super-light-green",
+            "mode": "fixed"
+          },
           "custom": {
             "align": "center",
             "cellOptions": {
@@ -645,17 +649,36 @@
             "filterable": false,
             "inspect": false
           },
-          "mappings": [],
+          "mappings": [
+            {
+              "options": {
+                "match": "true",
+                "result": {
+                  "color": "dark-green",
+                  "index": 0,
+                  "text": "TRUE"
+                }
+              },
+              "type": "special"
+            },
+            {
+              "options": {
+                "match": "false",
+                "result": {
+                  "color": "red",
+                  "index": 1,
+                  "text": "FALSE"
+                }
+              },
+              "type": "special"
+            }
+          ],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           }
@@ -740,10 +763,6 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           }
@@ -818,17 +837,36 @@
             "filterable": false,
             "inspect": false
           },
-          "mappings": [],
+          "mappings": [
+            {
+              "options": {
+                "match": "true",
+                "result": {
+                  "color": "dark-green",
+                  "index": 0,
+                  "text": "TRUE"
+                }
+              },
+              "type": "special"
+            },
+            {
+              "options": {
+                "match": "false",
+                "result": {
+                  "color": "red",
+                  "index": 1,
+                  "text": "FALSE"
+                }
+              },
+              "type": "special"
+            }
+          ],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           }
@@ -1329,6 +1367,6 @@
   "timezone": "",
   "title": "Manager Dashboard",
   "uid": "dbd697ba-c1ff-41ab-8773-4c98f98de26f",
-  "version": 150,
+  "version": 153,
   "weekStart": ""
 }
